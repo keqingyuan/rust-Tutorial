@@ -1,7 +1,7 @@
 use std::env;
 use std::process;
 
-use self::core::Config;
+use minigrep::Config;
 
 fn main() {
     let args: Vec<String> = env::args().collect();
@@ -15,7 +15,7 @@ fn main() {
     println!("检索文件:{}", config.filename);
 
     // let contents = fs::read_to_string(filename).expect("读文件错误");
-    if let Err(e) = core::run(config) {
+    if let Err(e) = minigrep::run(config) {
         eprintln!("程序错误:{}",e);
         process::exit(1);
     }
